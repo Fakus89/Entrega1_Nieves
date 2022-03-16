@@ -2,5 +2,5 @@ from django.shortcuts import render
 
 
 def inicio(request):
-    return render(request,"indice/index.html", {})
+    return render(request,"inicio/index.html", {})
 
