@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+
+
+def taller(request):
+    return render(request,"taller/taller1.html", {})
+
