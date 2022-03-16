@@ -11,7 +11,7 @@ class Cliente(models.Model):
 class auto(models.Model):
     marca = models.CharField(max_length=15)
     modelo = models.CharField(max_length=25)
-    patente = models.IntegerField()
+    patente = models.IntegerField(max_length=7)
     
 
 
