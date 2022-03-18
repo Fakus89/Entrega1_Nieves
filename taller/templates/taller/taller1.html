@@ -5,12 +5,29 @@
 {% endblock titulo %}
 {% block imagen %}
     <header class="masthead2">
+        {% endblock imagen %}
         <div class="container position-relative">
             <div class="row justify-content-center">
                 <div class="col-xl-6">
                     <div class="text-center text-white">
-{% endblock imagen %}
-
-{% block caratula %}
-<h1 class="mb-5">Taller San Salvador de Jujuy</h1>
-{% endblock caratula %}
+                {% block cliente %}
+                {% endblock cliente %}      
+                {% block auto %}    
+                {% endblock auto %}  
+                {% block problema %}
+                {% endblock problema %}
+                {% block taller %}  
+                    <nav class="navbar navbar-light bg-light static-top">
+                        <div class="container">
+                            <a class="btn btn-primary" href={% url 'cliente_n' %}>cliente</a>
+                            <a class="btn btn-primary" href={% url 'auto_n' %}>Ingreso de Vehiculo</a>
+                            <a class="btn btn-primary" href= {% url 'formulario_problema' %}>Inconveniente</a>
+                        </div>
+                    </nav>
+                {% endblock taller %}       
+                    {% block caratula %}
+                        <h1 class="mb-5">Taller San Salvador de Jujuy</h1>
+                    {% endblock caratula %}
+                    
+       
+{% endblock taller %} 

@@ -22,9 +22,9 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="inicio">Inicio</a>
-                <a class="navbar-brand" href="taller/taller">Taller</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+                <a class="btn btn-primary" href={% url 'inicio' %}>Inicio</a>
+                <a class="btn btn-primary" href={% url 'taller' %}>Taller</a>
+                <a class="btn btn-primary" href=http://127.0.0.1:8000/admin>Administracion</a>
             </div>
         </nav>
         <!-- Masthead-->
@@ -36,8 +36,10 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            {% block caratula %}
-                            {% endblock caratula %}
+                        {% block caratula %}
+                        {% endblock caratula %} 
+                        {% block taller %}      
+                        {%endblock taller%}
                             <h1 class="mb-5">Bienvenidos</h1>
                             <!-- Signup form-->
                             <!-- * * * * * * * * * * * * * * *-->
@@ -86,12 +88,11 @@
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
+                            <li class="list-inline-item"><a href={% url "about" %}>About</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
+                            <li class="list-inline-item"><a href={% url "contact" %}>Contact</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                            <li class="list-inline-item">⋅</li>
+                            
                             
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; Sitio creado por Facundo.</p>
