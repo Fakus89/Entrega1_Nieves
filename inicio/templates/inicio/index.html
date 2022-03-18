@@ -36,10 +36,9 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                        {% block caratula %}
-                        {% endblock caratula %} 
-                        {% block taller %}      
-                        {%endblock taller%}
+                            
+                            {% block caratula %}
+                            {% endblock caratula %} 
                             <h1 class="mb-5">Bienvenidos</h1>
                             <!-- Signup form-->
                             <!-- * * * * * * * * * * * * * * *-->
@@ -78,6 +77,8 @@
                             </form>
                         </div>
                     </div>
+                    {% block taller %}      
+                    {% endblock taller%}
                 </div>
             </div>
         </header>

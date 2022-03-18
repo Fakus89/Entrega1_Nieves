@@ -6,15 +6,14 @@ from django.shortcuts import render
 def Taller(request):
     return render(request,"taller/taller1.html", {})
 
-def cliente_n(request):
+def Cliente_n(request):
     return render(request, "taller/cliente.html",{})
 
-def auto_n(request):
+def Auto_n(request):
     return render(request, "taller/auto_n.html",{})
 
-def problemas(request):
+def Problemas(request):
     return render(request, "taller/arreglos.html",{})
-
 
 def About(request):
     return HttpResponse ('''
