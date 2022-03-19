@@ -1,37 +1,21 @@
 {% extends 'inicio/index.html' %}
 
-{% block  titulo %}
+{% block titulo_arriba %}
     <title>Taller</title>
-{% endblock titulo %}
-
-    {% block imagen %}
-        <header class="masthead2">
-    {% endblock imagen %}
-       
-        <div class="container position-relative">
-            <div class="row justify-content-center">
-                <div class="col-xl-6">
-                    <div class="text-center text-white">
-                
-{% block auto %}    
-{% endblock auto %}  
-{% block problema %}
-{% endblock problema %}
-{% block taller %}  
-    
+{% endblock titulo_arriba %}
+{% block imagen %}
+    <header class="masthead2">
+{% endblock imagen %}
+{% block caratula %}
+    <h1 class="mb-5">Taller San Salvador de Jujuy</h1>
+{% endblock caratula %}      
+{% block body %}
+         
     <nav >
         <div class="container">
             <a class="btn btn-primary" href={% url 'cliente' %}>Cliente</a>
             <a class="btn btn-primary" href={% url 'auto' %}>Ingreso de Vehiculo</a>
             <a class="btn btn-primary" href= {% url 'inconveniente' %}>Inconveniente</a>
         </div>
-    </nav>                
-    {% endblock taller %}
-    {% block cliente %}
-    {% endblock cliente %}       
-    {% block caratula %}
-        <h1 class="mb-5">Taller San Salvador de Jujuy</h1>
-    {% endblock caratula %}
-   
-       
-                
+    </nav>  
+{% endblock body %}   

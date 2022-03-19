@@ -1,23 +1,31 @@
-{% extends 'taller/taller1.html' %}
+{% extends 'inicio/index.html' %}
 
 {% block titulo %}
     <title>Cliente</title>
 {% endblock titulo %}
 
-{% block imagen %}{% endblock imagen %}
-
-{% block taller %}{% endblock taller%}
-
-{% block caratula %}{% endblock caratula %} 
+{% block heder %}
+{% block body %}
+         
+        <nav >
+            <div class="container">
+                <a class="btn btn-primary" href={% url 'cliente' %}>Cliente</a>
+                <a class="btn btn-primary" href={% url 'auto' %}>Ingreso de Vehiculo</a>
+                <a class="btn btn-primary" href= {% url 'inconveniente' %}>Inconveniente</a>
+            </div>
+        </nav>  
+    {% endblock body %}
+{% endblock heder %}
 
 {% block cliente %}
-        
-    <form action="" method="post">
+    
+    Nombre: <input type="text">
+    Apellido: <input type="text">
+    Telefono: <input type="number">
+    Email: <input type="text">
+    
+    <form action="" method="post"></form>
+   
+    <input type="submit" placeholder="Enviar">
 
-        <imput type="submit" placeholder="Cargar">
-
-    </form>
-
-
-{% endblock cliente %}      
-                  
+{% endblock cliente %}

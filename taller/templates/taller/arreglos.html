@@ -1,11 +1,37 @@
-{% extends 'taller/taller1.html' %}
+{% extends 'inicio/index.html' %}
 
 {% block titulo %}
-    <title>Arreglos</title>
+    <title>Arreglo</title>
 {% endblock titulo %}
+    {% block imagen %}        
+    {% endblock imagen %}
+    {% block caratula %}
+        <h1 class="mb-5">Datos Del Arreglo</h1>
+    {% endblock caratula %}
+    {% block body %}
+         
+        <nav >
+            <div class="container">
+                <a class="btn btn-primary" href={% url 'cliente' %}>Cliente</a>
+                <a class="btn btn-primary" href={% url 'auto' %}>Ingreso de Vehiculo</a>
+                <a class="btn btn-primary" href= {% url 'inconveniente' %}>Inconveniente</a>
+            </div>
+        </nav>  
+    {% endblock body %}   
+                  
+    {% block Arreglo %}
+        <form action="" method="post">
+            <imput type="text"
+            <imput type="text"    
+            <imput type="number"
+            <imput type="text"
+            <imput type="submit" placeholder="Cargar">
 
-{% block problema %}
-    prueba
+        </form>
 
-{% endblock problema %}
+
+    {% endblock Arreglo %} 
+    {% block body1 %}  
+    {% endblock body1 %}  
+
                
