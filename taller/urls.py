@@ -1,13 +1,17 @@
 from django.urls import path 
-from .views import Taller, About, Contact, Auto_n, Cliente_n, Problemas
+from .views import taller, about, contact, cliente, auto, problemas,busqueda_auto,busqueda_cliente,busqueda_inconveniente
 
 urlpatterns = [
-    path("taller/",Taller,name="taller"),
-    path("abaut", About, name="about"),
-    path("contact", Contact, name="contact"),
-    path("auto/" , Auto_n, name="auto"),
-    path("cliente/" ,Cliente_n , name="cliente"),
-    path("problema/" , Problemas, name="inconveniente"),
+    path("taller/", taller ,name="taller"),
+    path("abaut/", about, name="about"),
+    path("contact", contact, name="contact"),
+    path("cliente/", cliente, name="cliente"),
+    path("auto/", auto, name="auto"),
+    path("problema/", problemas, name="problemas"),
+    path("busquedaauto/", busqueda_auto, name="busqueda_auto"),
+    path("busquedacliente/", busqueda_cliente, name="busqueda_cliente"),
+    path("busquedainconveniente/", busqueda_inconveniente, name="busqueda_inconveniente"),
+
     
 ]
 

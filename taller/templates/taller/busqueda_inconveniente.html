@@ -1,26 +1,22 @@
 {% extends 'inicio/index.html' %}
 
 {% block titulo_arriba %}
-    <title>Arreglo</title>
+    <title>busqueda_auto</title>
 {% endblock titulo_arriba %}
-{% block imagen %}
-    <header class="masthead2">
-{% endblock imagen %}
+
    
     {% block caratula %}
-        <h1 class="mb-5">Ingreso del Cliente</h1>
+        <h1 class="mb-5">Buscar Auto</h1>
     {% endblock caratula %}
     {% block body %}
          
         <nav >
-            <div class="container">
-                <a class="btn btn-primary" href={% url 'cliente' %}>Cliente</a>
-                <a class="btn btn-primary" href={% url 'auto' %}>Ingreso de Vehiculo</a>
-                <a class="btn btn-primary" href= {% url 'problemas' %}>problemas</a>
-                <form action={% url 'auto' %} method="post">
+            <div class="container">    
+
+                <form action={% url 'busqueda_auto' %} method="get">
                     {% csrf_token %}
                     <table>
-                        {{clientex}}
+                        {{buscador3.as_table}}
                     </table>
                     <input type="submit" placeholder="Enviar">
                 </form>
@@ -43,4 +39,3 @@
     </table>
     <input type="submit" placeholder="Enviar">
 </form>
-

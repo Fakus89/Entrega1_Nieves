@@ -1,0 +1,33 @@
+{% extends 'inicio/index.html' %}
+
+{% block titulo_arriba %}
+    <title>busqueda_cliente</title>
+{% endblock titulo_arriba %}
+
+   
+    {% block caratula %}
+        <h1 class="mb-5">Buscar Cliente</h1>
+    {% endblock caratula %}
+    {% block body %}
+         
+        <nav >
+            <div class="container">    
+
+                <form action={% url 'busqueda_auto' %} method="get">
+                    {% csrf_token %}
+                    <table>
+                        {{buscador1.as_table}}
+                    </table>
+                    <input type="submit" placeholder="Enviar">
+                </form>
+            </div>
+        </nav>  
+    {% endblock body %}   
+    
+<form action={% url 'auto' %} method="post">
+    {% csrf_token %}
+    <table>
+        {{clientex}}
+    </table>
+    <input type="submit" placeholder="Enviar">
+</form>

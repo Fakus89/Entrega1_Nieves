@@ -1,10 +1,12 @@
 {% extends 'inicio/index.html' %}
 
-{% block titulo %}
+{% block titulo_arriba %}
     <title>Arreglo</title>
-{% endblock titulo %}
-    {% block imagen %}        
-    {% endblock imagen %}
+{% endblock titulo_arriba %}
+{% block imagen %}
+    <header class="masthead2">
+{% endblock imagen %}
+   
     {% block caratula %}
         <h1 class="mb-5">Datos Del Arreglo</h1>
     {% endblock caratula %}
@@ -14,24 +16,20 @@
             <div class="container">
                 <a class="btn btn-primary" href={% url 'cliente' %}>Cliente</a>
                 <a class="btn btn-primary" href={% url 'auto' %}>Ingreso de Vehiculo</a>
-                <a class="btn btn-primary" href= {% url 'inconveniente' %}>Inconveniente</a>
+                <a class="btn btn-primary" href= {% url 'problemas' %}>problemas</a>
+                <form action={% url "inconveniente" method="post">
+                    {% csrf_token %}
+                    <table>
+                        {{problemax.as_table}}
+                    </table>
+                <input type="submit" placeholder="Enviar">
+                </form>
             </div>
         </nav>  
     {% endblock body %}   
-                  
-    {% block Arreglo %}
-        <form action="" method="post">
-            <imput type="text"
-            <imput type="text"    
-            <imput type="number"
-            <imput type="text"
-            <imput type="submit" placeholder="Cargar">
-
-        </form>
-
-
-    {% endblock Arreglo %} 
-    {% block body1 %}  
-    {% endblock body1 %}  
+    {% block buscador %}
+    {% endblock buscador %}             
+   
+  
 
                
