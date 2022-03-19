@@ -4,25 +4,19 @@
     <title>Cliente</title>
 {% endblock titulo %}
 
-{% block heder %}
-{% block body %}
+
+
+
          
-        <nav >
-            <div class="container">
-                <a class="btn btn-primary" href={% url 'cliente' %}>Cliente</a>
-                <a class="btn btn-primary" href={% url 'auto' %}>Ingreso de Vehiculo</a>
-                <a class="btn btn-primary" href= {% url 'inconveniente' %}>Inconveniente</a>
-            </div>
-        </nav>  
-    {% endblock body %}
-{% endblock heder %}
+
+ 
 
 {% block cliente %}
-    
-    Nombre: <input type="text">
-    Apellido: <input type="text">
-    Telefono: <input type="number">
-    Email: <input type="text">
+    {% csrf_token %}
+    Nombre: <input type="text" name="nombre">
+    Apellido: <input type="text"name="apellido">
+    Telefono: <input type="number"name="telefono">
+    Email: <input type="text"name="email">
     
     <form action="" method="post"></form>
    

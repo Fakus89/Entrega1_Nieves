@@ -19,4 +19,4 @@ class Problema(models.Model):
     inconveniente = models.CharField(max_length=50)
     ingreso = models.DateTimeField()
     arreglado = models.BooleanField()
-    egreso = models.DateTimeField()
+    
