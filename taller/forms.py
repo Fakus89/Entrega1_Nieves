@@ -19,8 +19,8 @@ class FormAuto(forms.Form):
 
 class FormProblema(forms.Form):
     inconveniente = forms.CharField(max_length=50)
-    ingreso = forms.DateTimeField()
-    arreglado = forms.BooleanField()
+    ingreso = forms.DateField()
+    egreso = forms.DateField() 
 
 
 class BusquedaCliente(forms.Form):
