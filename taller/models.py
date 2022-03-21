@@ -7,6 +7,10 @@ class Cliente(models.Model):
     telefono = models.IntegerField()
     email = models.EmailField()
 
+    def __str__(self):
+        return f"Nombre: {self.nombre}"
+
+
 
 class Auto(models.Model):
     marca = models.CharField(max_length=15)

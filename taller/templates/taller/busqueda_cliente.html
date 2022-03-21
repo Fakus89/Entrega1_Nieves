@@ -13,7 +13,7 @@
         <nav >
             <div class="container">    
 
-                <form action={% url 'busqueda_cliente' %} method="get">
+                <form action={% url 'busqueda_nombre' %} method="get">
                     {% csrf_token %}
                     <table>
                         {{buscador1.as_table}}
@@ -21,15 +21,20 @@
 
                     <input type="submit" placeholder="Enviar">
                 </form>
-
-                {% for nombre in dato1 %}
-                    <li>
-                        {{nombre}}
-                    </li>
-    
-                {% endfor %}
             </div>
-        </nav>       
+        </nav>
+        <nav >       
+            <div>
+                {% for cliente in nombre_buscado %}
+                    <Ol>    
+                        <li>
+                            {{cliente}}
+                        </li>
+                    </Ol>
+                    
+                {% endfor %}    
+            </div>
+        </nav>   
     {% endblock body %}   
 
     

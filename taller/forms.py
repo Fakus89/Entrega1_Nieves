@@ -28,7 +28,7 @@ class BusquedaNombre(forms.Form):
 
 
 class BusquedaAuto(forms.Form):
-    partial_auto = forms.CharField(label="Buscar por Patente",max_length=25)
+    partial_patente = forms.CharField(label="Buscar por Patente",max_length=25)
 
 
 class BusquedaInconveniente(forms.Form):

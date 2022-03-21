@@ -1,25 +1,24 @@
 {% extends 'inicio/index.html' %}
 
 {% block titulo_arriba %}
-    <title>busqueda_auto</title>
+    <title>busqueda_patente</title>
 {% endblock titulo_arriba %}
 
    
     {% block caratula %}
-        <h1 class="mb-5">Buscar Auto</h1>
+        <h1 class="mb-5">Buscar Patente</h1>
     {% endblock caratula %}
     {% block body %}
          
         <nav >
             <div class="container">    
 
-                <form action={% url 'busqueda_auto' %} method="get">
+                <form action={% url 'busqueda_patente' %} method="get">
                     {% csrf_token %}
                     <table>
                         {{buscador2.as_table}}
                     </table>
                     <input type="submit" placeholder="Enviar">
-
                 </form>
 
                 {% for curso in busqueda_auto %}
@@ -33,10 +32,3 @@
         </nav>  
     {% endblock body %}   
 
-<form action={% url 'auto' %} method="post">
-    {% csrf_token %}
-    <table>
-        {{clientex}}
-    </table>
-    <input type="submit" placeholder="Enviar">
-</form>
