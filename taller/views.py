@@ -1,7 +1,7 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render
-from .forms import BusquedaAuto, FormCliente, FormAuto, FormProblema, BusquedaCliente,BusquedaInconveniente
+from .forms import BusquedaAuto, FormCliente, FormAuto, FormProblema, BusquedaNombre,BusquedaInconveniente
 from .models import Auto, Cliente, Problema
 
 
@@ -47,32 +47,37 @@ def form_problemas(request):
     problemax= FormProblema
     return render(request, "taller/arreglos.html",{"problemax": problemax})
 
-def busqueda_cliente(request):
+##########################################-----busquedas---------########################################3
 
-    dcliente= request.GET.get("partial_cliente", None)
+
+
+
+def busqueda_nombre(request):
+    dato1=[]
+    dcliente= request.GET.get("partial_nombre", None)
     if dcliente is not None:
-        Cliente.object.filter(cliente=dcliente)
+        dato1 = Cliente.object.filter(nombre__icontains=dcliente)
+    buscador1=BusquedaNombre()
+    return render(request,"taller/busqueda_cliente.html",{"buscador1": buscador1 ,"dato1": dato1})
 
-
-    buscador1=BusquedaCliente()
-    return render(request,"taller/busqueda_cliente.html",{"buscador1":buscador1})
 
 def busqueda_auto(request):
+    dato2=[]
     dauto= request.GET.get("partial_auto", None)
     if dauto is not None:
-        Auto.object.filter(auto=dauto)
-
+        dato2=Auto.object.filter(auto=dauto)
     buscador2= BusquedaAuto()
-    return render(request,"taller/busqueda_auto.html",{"buscador2":buscador2})
+    return render(request,"taller/busqueda_auto.html",{"buscador2":buscador2, "dato2": dato2})
 
 
 def busqueda_inconveniente(request):
+    dato3=[]
     dinconveniente= request.GET.get("partial_inconveniente", None)
     if dinconveniente is not None:
-        Problema.object.filter(problemas=dinconveniente)
+        dato3=Problema.object.filter(problemas=dinconveniente)
 
     buscador3=BusquedaInconveniente()
-    return render(request,"taller/busqueda_inconveniente.html",{"buscador3":buscador3})
+    return render(request,"taller/busqueda_inconveniente.html",{"buscador3":buscador3,"dato3": dato3})
 
 
 def about(request):

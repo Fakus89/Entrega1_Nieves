@@ -19,6 +19,15 @@
                         {{buscador2.as_table}}
                     </table>
                     <input type="submit" placeholder="Enviar">
+
+                </form>
+
+                {% for curso in busqueda_auto %}
+                    <li>
+                        {{auto}}
+                    </li>
+    
+                {% endfor %}
                 </form>
             </div>
         </nav>  

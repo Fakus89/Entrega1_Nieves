@@ -23,13 +23,13 @@ class FormProblema(forms.Form):
     egreso = forms.DateField() 
 
 
-class BusquedaCliente(forms.Form):
-    partial_cliente = forms.CharField(label="Buscar",max_length=25)
+class BusquedaNombre(forms.Form):
+    partial_nombre = forms.CharField(label="Buscar por Nombre",max_length=25)
 
 
 class BusquedaAuto(forms.Form):
-    partial_auto = forms.CharField(label="Buscar",max_length=25)
+    partial_auto = forms.CharField(label="Buscar por Patente",max_length=25)
 
 
 class BusquedaInconveniente(forms.Form):
-    partial_inconveniente = forms.CharField(label="Buscar",max_length=25)
+    partial_inconveniente = forms.CharField(label="Buscar inconveniente",max_length=25)

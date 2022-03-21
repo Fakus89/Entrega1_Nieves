@@ -17,7 +17,7 @@
                 <a class="btn btn-primary" href={% url 'form_cliente' %}>Cliente</a>
                 <a class="btn btn-primary" href={% url 'form_auto' %}>Ingreso de Vehiculo</a>
                 <a class="btn btn-primary" href= {% url 'form_problemas' %}>problemas</a>
-                <form action={% url "form_problema" %} method="post">
+                <form action={% url "form_problemas" %} method="post">
                     {% csrf_token %}
                     <table>
                         {{problemax.as_table}}
