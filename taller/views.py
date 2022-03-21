@@ -38,7 +38,7 @@ def form_problemas(request):
         problemax= FormProblema(request.POST)
         if problemax.is_valid():
             datoproblema=problemax.cleaned_data
-            nuevo_problema= Problema(inconveniente=datoproblema["inconveniente"],ingeso=datoproblema["ingeso"],arreglado=datoproblema["arreglado"])
+            nuevo_problema= Problema(inconveniente=datoproblema["inconveniente"])
             nuevo_problema.save()   
             return render(request, "taller/arreglos.html",{"nuevo_problema":nuevo_problema})
     problemax= FormProblema
