@@ -23,8 +23,8 @@ class Auto(models.Model):
 
 class Problema(models.Model):
     inconveniente = models.CharField(max_length=50)
-    ingreso = models.DateTimeField()
-    arreglado = models.BooleanField()
+    ingreso = models.DateField()
+    arreglado = models.DateField()
     
     def __str__(self):
         return f"Nombre: {self.inconveniente}"
