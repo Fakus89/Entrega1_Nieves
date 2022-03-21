@@ -64,9 +64,9 @@ def busqueda_patente(request):
 
 def busqueda_inconveniente(request):
     inconveniente_buscado=[]
-    dato3=request.GET.get("partial_patente")
+    dato3=request.GET.get("partial_inconveniente")
     if dato3 is not None:
-        inconveniente_buscado=Problema.objects.filter(patente__icontains=dato3)
+        inconveniente_buscado=Problema.objects.filter(inconveniente__icontains=dato3)
     buscador3=BusquedaInconveniente()
     return render(request, "taller/busqueda_inconveniente.html",{"buscador3":buscador3,"inconveniente_buscado":inconveniente_buscado})
 

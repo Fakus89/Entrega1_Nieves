@@ -32,4 +32,4 @@ class BusquedaAuto(forms.Form):
 
 
 class BusquedaInconveniente(forms.Form):
-    partial_inconveniente = forms.CharField(label="Buscar inconveniente",max_length=25)
+    partial_inconveniente = forms.CharField(label="Buscar inconveniente",max_length=50)
