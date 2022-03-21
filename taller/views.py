@@ -8,7 +8,6 @@ from .models import Auto, Cliente, Problema
 def taller(request):
     return render(request,"taller/taller1.html", {})
 
-
 def form_cliente(request):
 
     if request.method == "POST":
@@ -20,7 +19,6 @@ def form_cliente(request):
             return render(request, "taller/cliente.html",{"nuevo_cliente":nuevo_cliente})
     clientex= FormCliente()
     return render(request, "taller/cliente.html",{"clientex": clientex})
-
 
 def form_auto(request):
 
@@ -34,7 +32,6 @@ def form_auto(request):
     autox= FormAuto()
     return render(request, "taller/auto_n.html",{"autox": autox})
 
-
 def form_problemas(request):
 
     if request.method == "POST":
@@ -47,10 +44,7 @@ def form_problemas(request):
     problemax= FormProblema
     return render(request, "taller/arreglos.html",{"problemax": problemax})
 
-##########################################-----busquedas---------########################################3
-
-
-
+##########################################-----busquedas---------########################################
 
 def busqueda_nombre(request):
     nombre_buscado=[]
@@ -59,31 +53,24 @@ def busqueda_nombre(request):
         nombre_buscado=Cliente.objects.filter(nombre__icontains=dato1)
     buscador1= BusquedaNombre()
     return render(request, "taller/busqueda_cliente.html", {"buscador1":buscador1,"nombre_buscado":nombre_buscado})
-    
-
-
-
-
-
-
-
 
 def busqueda_patente(request):
-
-    print(request.GET)
-
+    patente_buscado=[]
+    dato2=request.GET.get("partial_patente")
+    if dato2 is not None:
+        patente_buscado=Auto.objects.filter(patente__icontains=dato2)
     buscador2=BusquedaAuto()
-    return render(request, "taller/busqueda_auto.html",{"buscador2":buscador2})
-   
-
-
+    return render(request, "taller/busqueda_auto.html", {"buscador2":buscador2,"patente_buscado":patente_buscado})
 
 def busqueda_inconveniente(request):
-
+    inconveniente_buscado=[]
+    dato3=request.GET.get("partial_patente")
+    if dato3 is not None:
+        inconveniente_buscado=Problema.objects.filter(patente__icontains=dato3)
     buscador3=BusquedaInconveniente()
-    return render(request, "taller/busqueda_inconveniente.html",{"buscador3":buscador3})
+    return render(request, "taller/busqueda_inconveniente.html",{"buscador3":buscador3,"inconveniente_buscado":inconveniente_buscado})
 
-
+##########################################-------para mas adelante-------########################################
 
 def about(request):
     return HttpResponse ('''

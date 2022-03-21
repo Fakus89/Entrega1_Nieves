@@ -10,19 +10,31 @@
     {% endblock caratula %}
     {% block body %}
          
-        <nav >
-            <div class="container">    
+    <nav >
+        <div class="container">    
 
-                <form action={% url 'busqueda_inconveniente' %} method="get">
-                    {% csrf_token %}
-                    <table>
-                        {{buscador3.as_table}}
-                    </table>
-                    <input type="submit" placeholder="Enviar">
-                </form>
-                {% for patente in  %}{% endfor %}
-            </div>
-        </nav>  
+            <form action={% url 'busqueda_inconveniente' %} method="get">
+                {% csrf_token %}
+                <table>
+                    {{buscador3.as_table}}
+                </table>
+
+                <input type="submit" placeholder="Enviar">
+            </form>
+        </div>
+    </nav>
+    <nav >       
+        <div>
+            {% for problema in inconveniente_buscado %}
+                <Ol>    
+                    <li>
+                        {{problema}}
+                    </li>
+                </Ol>
+                
+            {% endfor %}    
+        </div>
+    </nav>   
     {% endblock body %}   
                   
     {% block Arreglo %}

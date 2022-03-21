@@ -17,6 +17,8 @@ class Auto(models.Model):
     modelo = models.CharField(max_length=25)
     patente = models.CharField(max_length=7)
     
+    def __str__(self):
+        return f"Nombre: {self.patente}"
 
 
 class Problema(models.Model):
@@ -24,3 +26,5 @@ class Problema(models.Model):
     ingreso = models.DateTimeField()
     arreglado = models.BooleanField()
     
+    def __str__(self):
+        return f"Nombre: {self.inconveniente}"
