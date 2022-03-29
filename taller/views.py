@@ -1,6 +1,6 @@
 
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import BusquedaAuto, FormCliente, FormAuto, FormProblema, BusquedaNombre, BusquedaAuto, BusquedaInconveniente
 from .models import Auto, Cliente, Problema
 
@@ -54,6 +54,7 @@ def busqueda_nombre(request):
     buscador1= BusquedaNombre()
     return render(request, "taller/busqueda_cliente.html", {"buscador1":buscador1,"nombre_buscado":nombre_buscado})
 
+
 def busqueda_patente(request):
     patente_buscado=[]
     dato2=request.GET.get("partial_patente")
@@ -69,6 +70,32 @@ def busqueda_inconveniente(request):
         inconveniente_buscado=Problema.objects.filter(inconveniente__icontains=dato3)
     buscador3=BusquedaInconveniente()
     return render(request, "taller/busqueda_inconveniente.html",{"buscador3":buscador3,"inconveniente_buscado":inconveniente_buscado})
+
+#lista de clientes
+def lista_clientes(request):
+    lista_de_clientes=Cliente.objects.all()
+    return render(request,"taller/lista_clientes.html",{"lista_de_clientes":lista_de_clientes})
+
+#actualizar cliente
+def actualizar_cliente(request,id):
+    cliente=Cliente.objects.get(id=id)
+
+    if request.method == "POST":
+        clientex= FormCliente(request.POST)
+        if clientex.is_valid():
+            datocliente=clientex.cleaned_data
+            cliente.nombre=datocliente["nombre"]
+            cliente.apellido=datocliente["apellido"]
+            cliente.telefono=datocliente["telefono"]
+            cliente.email=datocliente["email"]
+            cliente.save()
+            # return render(request, "taller/listado_clientes.html",{"cliente":cliente})
+            return redirect("lista_clientes")
+    clientex= FormCliente()
+    return render(request, "taller/actualizar_cliente.html",{"clientex": clientex, cliente:cliente})
+
+
+
 
 ##########################################-------para mas adelante-------########################################
 

@@ -1,19 +1,21 @@
 from django.urls import path 
-from .views import taller, about, contact, form_cliente, form_auto, form_problemas,busqueda_patente,busqueda_nombre,busqueda_inconveniente
-
+from . import views 
 urlpatterns = [ 
-    path("taller/", taller ,name="taller"),
-    path("abaut/", about, name="about"),
-    path("contact", contact, name="contact"),
-    path("form_cliente/", form_cliente, name="form_cliente"),
-    path("form_auto/", form_auto, name="form_auto"),
-    path("form_problemas/", form_problemas, name="form_problemas"),
+    path("taller/", views.taller ,name="taller"),
+    path("abaut/", views.about, name="about"),
+    path("contact", views.contact, name="contact"),
+    path("form_cliente/", views.form_cliente, name="form_cliente"),
+    path("form_auto/", views.form_auto, name="form_auto"),
+    path("form_problemas/", views.form_problemas, name="form_problemas"),
 
-    path("busqueda_nombre/", busqueda_nombre, name="busqueda_nombre"),
-    path("busqueda_patente/", busqueda_patente, name="busqueda_patente"),
-    path("busqueda_inconveniente/", busqueda_inconveniente, name="busqueda_inconveniente"),
+    path("busqueda_nombre/", views.busqueda_nombre, name="busqueda_nombre"),
+    path("busqueda_patente/", views.busqueda_patente, name="busqueda_patente"),
+    path("busqueda_inconveniente/", views.busqueda_inconveniente, name="busqueda_inconveniente"),
 
-    
+    path("lista_clientes/",views.lista_clientes, name= "lista_clientes"),
+    # path("cliente/",views.cliente, name="cliente"),
+    # path("cliente/borrar",views.borrar_cliente, name="borrar_cliente"),
+    path("taller/actualizar_cliente/<int:id>",views.actualizar_cliente, name="actualizar_cliente"),
 ]
 
  

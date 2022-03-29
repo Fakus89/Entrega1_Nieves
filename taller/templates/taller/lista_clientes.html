@@ -1,0 +1,35 @@
+{% extends 'inicio/index.html' %}
+
+{% block titulo_arriba %}
+    <title>lista_de_clientes</title>
+{% endblock titulo_arriba %}
+
+   
+    {% block caratula %}
+        <h1 class="mb-5">Lista De Clientes</h1>
+    {% endblock caratula %}
+    {% block body %}
+         
+        <nav >
+            <div class="container">  
+                <nav >
+                    <a class="btn btn-primary" href={% url 'form_cliente' %}>Ingresar Cliente</a>
+                    
+                    <div class="container">  
+                        {% for clientes in lista_de_clientes %}
+                            <Ol>    
+                                <li>
+                                    {{clientes}}
+                                    <a class="btn btn-primary" href={% url 'actualizar_cliente' cliente.id %}>Editar</a>
+                                    
+                                </li> 
+                            </Ol>
+                        {% endfor %}    
+                    </div>
+                </nav>
+                
+                
+    {% endblock body %}   
+
+    
+   

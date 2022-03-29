@@ -8,7 +8,7 @@ class Cliente(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        return f"Nombre: {self.nombre}"
+        return f"Cliente: {self.nombre}, {self.apellido}, n°:{self.id}"
 
 
 
@@ -18,11 +18,11 @@ class Auto(models.Model):
     patente = models.CharField(max_length=7)
     
     def __str__(self):
-        return f"Nombre: {self.patente}"
+        return f"Patente: {self.patente}: {self.marca}, {self.modelo}, n°:{self.id}"
 
 
 class Problema(models.Model):
     inconveniente = models.CharField(max_length=50)
     
     def __str__(self):
-        return f"Nombre: {self.inconveniente}"
+        return f"Problema: {self.inconveniente}"
