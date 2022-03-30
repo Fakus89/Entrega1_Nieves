@@ -14,8 +14,12 @@ urlpatterns = [
 
     path("lista_clientes/",views.lista_clientes, name= "lista_clientes"),
     # path("cliente/",views.cliente, name="cliente"),
-    # path("cliente/borrar",views.borrar_cliente, name="borrar_cliente"),
-    path("taller/actualizar_cliente/<int:id>",views.actualizar_cliente, name="actualizar_cliente"),
+    
+    path("actualizar_cliente/<int:id>/",views.actualizar_cliente, name="actualizar_cliente"),
+    path("cliente/borrar/<int:id>/",views.borrar_cliente, name="borrar_cliente"),
+
+    path("autos/",views.ListaAuto.as_view(),name="lista_autos"),
+    path("problemas/",views.ListaArreglo.as_view(),name="lista_problemas"),
 ]
 
  

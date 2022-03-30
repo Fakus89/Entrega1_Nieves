@@ -16,7 +16,10 @@
         <div class="container">
             <a class="btn btn-primary" href={% url 'form_cliente' %}>Cliente</a>
             <a class="btn btn-primary" href={% url 'form_auto' %}>Ingreso de Vehiculo</a>
-            <a class="btn btn-primary" href= {% url 'form_problemas' %}>problemas</a>
+            <a class="btn btn-primary" href= {% url 'form_problemas' %}>Problemas del Vehiculo</a>
+            <a class="btn btn-primary" href={% url 'lista_clientes' %}>Lista De Clientes</a>
+            <a class="btn btn-primary" href={% url 'lista_autos' %}>Lista De Vehiculos</a>
+            <a class="btn btn-primary" href={% url 'lista_problemas' %}>Lista De Problemas</a>
         </div>
     </nav>  
 {% endblock body %}  
