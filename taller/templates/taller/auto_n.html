@@ -23,13 +23,21 @@
                         {{autox.as_table}}
                     </table>
                 <input type="submit" placeholder="Enviar">
+                <a class="btn btn-primary" href={% url 'busqueda_patente' %}>Buscar por Patente</a>
                 </form>
             </div>
         </nav>  
     {% endblock body %}   
                   
-    {% block buscador %}
-    {% endblock buscador %}  
+{% block buscador %}
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a class="btn btn-primary" href={% url 'form_cliente' %}>Cliente</a>
+            <a class="btn btn-primary" href={% url 'form_auto' %}>Ingreso de Vehiculo</a>
+            <a class="btn btn-primary" href= {% url 'form_problemas' %}>Problemas del Vehiculo</a>
+        </div>
+    </nav>     
+{% endblock buscador %} 
   
 
-               
+    

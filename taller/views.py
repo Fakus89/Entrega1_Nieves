@@ -2,9 +2,11 @@
 from re import template
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .forms import BusquedaAuto, FormCliente, FormAuto, FormProblema, BusquedaNombre, BusquedaAuto, BusquedaInconveniente
+from .forms import BusquedaAuto, FormCliente, FormAuto, FormProblema, BusquedaNombre, BusquedaAuto, BusquedaInconveniente,CreacionDeUsuario
 from .models import Auto, Cliente, Problema
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
+from django.contrib.auth import login as log, authenticate
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 
 def taller(request):
@@ -72,13 +74,18 @@ def busqueda_inconveniente(request):
         inconveniente_buscado=Problema.objects.filter(inconveniente__icontains=dato3)
     buscador3=BusquedaInconveniente()
     return render(request, "taller/busqueda_inconveniente.html",{"buscador3":buscador3,"inconveniente_buscado":inconveniente_buscado})
-#CRUD
+
+
+            ######################-----------CRUD-----------##########################
+
 #lista de clientes
+
 def lista_clientes(request):
     lista_de_clientes=Cliente.objects.all()
     return render(request,"taller/lista_clientes.html",{"lista_de_clientes":lista_de_clientes})
 
 #actualizar cliente
+
 def actualizar_cliente(request, id):
     cliente=Cliente.objects.get(id=id)
 
@@ -102,15 +109,68 @@ def borrar_cliente(request, id):
     return redirect("lista_clientes")
 
 #CRUD en BV
-
+class ClienteDetalle(DetailView):
+    model= Cliente
+    template_name="taller/datos_cliente.html"
+    
 class ListaAuto(ListView):
-    model=Auto
-    template_name="/taller/listas_autos.html"
+    model= Auto
+    template_name="taller/listas_autos.html"
 
 
 class ListaArreglo(ListView):
     model= Problema
-    template_name="/taller/listas_problemas.html"
+    template_name="taller/listas_problemas.html"
+
+
+
+#########################################----------loging registrar logout----------------###############################3
+
+
+def login(request):
+    if request.method =="POST":
+        form = AuthenticationForm(request, data=request.POST)
+
+        if form.is_valid():
+            username=form.cleaned_data["username"] 
+            password=form.cleaned_data["password"]
+            user=authenticate(username=username,password=password)
+
+            if user is not None:
+                log(request, user)
+                return render(request,"taller/taller1.html",{"mensaje":"Login correcto"})
+            else:
+                return render(request,"taller/login.html",{"form":form, "mensaje":"reintentar"})
+
+        else:
+            return render(request,"taller/login.html",{"form":form, "mensaje":"Datos incorrectos"})
+    else:
+        form = AuthenticationForm()
+        return render(request,"taller/login.html",{"form":form, "mensaje": "Bienvenidos"})
+
+    #log
+    #authenticate
+
+
+#################################-----------Creacion de Usuario------------------####################################
+
+def registrar(request):
+    
+    if request.method == "POST":
+        form=CreacionDeUsuario(request.POST)
+        if form.is_valid():
+            username=[]
+            username=form.cleaned_data["username"]
+            form.save()
+            return render(request,"taller/taller1.html",{"mensaje": f"El usuario {{username}},fue creado correctamente, por favor vuelva a loguearse "})
+        else:
+            return render(request, "taller/registrar.html",{"form":form, "mensaje": "Intente nuevamente"})
+            
+    form=CreacionDeUsuario()
+    return render(request, "taller/registrar.html",{"form":form, "mensaje": ""})
+
+
+
 ##########################################-------para mas adelante-------########################################
 
 def about(request):

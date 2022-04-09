@@ -1,0 +1,32 @@
+{% extends 'inicio/index.html' %}
+
+{% block titulo_arriba %}
+    <title>lista_de_problemas</title>
+{% endblock titulo_arriba %}
+
+   
+    {% block caratula %}
+        <h1 class="mb-5">Lista De Problemas</h1>
+    {% endblock caratula %}
+    {% block body %}
+         
+        <nav >
+            <div class="container">  
+                <nav >
+                    <a class="btn btn-primary" href={% url 'form_problemas' %}>Ingresar Problema</a>
+                    
+                    <div class="container">  
+                        {% for problema in object_list %}
+                            <ul>    
+                                <li>
+                                    {{problema}}
+                                    {% comment %} <a href={% url 'actualizar_problema' problema.id %}>Editar</a>
+                                    <a href={% url 'borrar_problema' problema.id %}>Eliminar</a> {% endcomment %}
+                                </li> 
+                            </ul>
+                        {% endfor %}    
+                    </div>
+                </nav>
+                
+                
+    {% endblock body %}   

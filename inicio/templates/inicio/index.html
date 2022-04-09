@@ -29,7 +29,9 @@
             <div class="container">
                 <a class="btn btn-primary" href={% url 'inicio' %}>Inicio</a>
                 <a class="btn btn-primary" href={% url 'taller' %}>Taller</a>
-                <a class="btn btn-primary" href=http://127.0.0.1:8000/admin>Administracion</a>
+                <a class="btn btn-primary" href={% url 'login' %}>Login</a>
+                <a class="btn btn-primary" href={% url 'logout' %}>Logout</a>
+                
 
             </div>
         </nav>
@@ -64,8 +66,8 @@
         {%block body1 %}
         {% block buscador %}
         <body>
-        
-            <!-- Navigation-->
+{% comment %}         
+            
             <nav class="navbar navbar-light bg-light static-top">
                 <div class="container">
                     <a class="btn btn-primary" href={% url 'busqueda_nombre' %}>Buscar por nombre</a>
@@ -73,7 +75,7 @@
                     <a class="btn btn-primary" href={% url 'busqueda_inconveniente' %}>Buscar inconveniente</a>
     
                 </div>
-            </nav>     
+            </nav>      {% endcomment %}
         </body>
         {% endblock buscador %}   
         <footer class="footer bg-light">
@@ -101,6 +103,14 @@
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.instagram.com"><i class="bi-instagram fs-3"></i></a>
+                            </li>    
+                            <li class="list-inline-item">
+                                <a class="btn btn-primary" href=http://127.0.0.1:8000/admin>Admin</a>
+                                
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn btn-primary"  href={% url 'registrar' %}>Registrarse</a>
+                                
                             </li>
                         </ul>
                     </div>

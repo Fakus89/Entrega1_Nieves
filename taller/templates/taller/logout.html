@@ -1,0 +1,32 @@
+{% extends 'inicio/index.html' %}
+
+{% block titulo_arriba %}
+    <title>Logout</title>
+{% endblock titulo_arriba %}
+{% block imagen %}
+    <header class="masthead2">
+{% endblock imagen %}
+
+{% block caratula %}
+    <h1 class="mb-5">Fin de Sesión, te deslogueaste correctamente
+        
+    </h1>
+{% endblock caratula %}   
+
+{% block body %}
+    
+   
+{% endblock body %}  
+
+    {% block buscador %}
+        <nav class="navbar navbar-light bg-light static-top">
+            <div class="container">
+                <a class="btn btn-primary" href={% url 'form_cliente' %}>Ingresar Cliente</a>
+                <a class="btn btn-primary" href={% url 'form_auto' %}>Ingreso de Vehiculo</a>
+                <a class="btn btn-primary" href= {% url 'form_problemas' %}>Problemas del Vehiculo</a>
+            </div>
+        </nav>     
+    {% endblock buscador %}
+
+
+   

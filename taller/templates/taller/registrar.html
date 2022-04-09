@@ -1,0 +1,47 @@
+{% extends 'inicio/index.html' %}
+
+{% block titulo_arriba %}
+    <title>Loggin</title>
+{% endblock titulo_arriba %}
+{% block imagen %}
+    <header class="masthead2">
+{% endblock imagen %}
+
+{% block caratula %}
+    <h1 class="mb-5">Regístrate <br/>
+
+            {% if mensaje %}
+                {{mensaje}}
+            {% endif %} 
+        
+    </h1>
+{% endblock caratula %}   
+
+{% block body %}
+    
+    <form action="" method= "post">
+        {% csrf_token %}
+        {{form.as_p}} 
+        <button>Comfirmar</button>  
+    </form>
+    {% comment %} <nav >
+        <div class="container">
+            <a class="btn btn-primary" href={% url 'busqueda_nombre' %}>Buscar por nombre</a>
+            <a class="btn btn-primary" href={% url 'busqueda_patente' %}>Buscar por Patente</a>
+            <a class="btn btn-primary" href={% url 'busqueda_inconveniente' %}>Buscar inconveniente</a>
+        </div>
+    </nav>   {% endcomment %}
+{% endblock body %}  
+
+    {% block buscador %}
+        <nav class="navbar navbar-light bg-light static-top">
+            <div class="container">
+                <a class="btn btn-primary" href={% url 'form_cliente' %}>Ingresar Cliente</a>
+                <a class="btn btn-primary" href={% url 'form_auto' %}>Ingreso de Vehiculo</a>
+                <a class="btn btn-primary" href= {% url 'form_problemas' %}>Problemas del Vehiculo</a>
+            </div>
+        </nav>     
+    {% endblock buscador %}
+
+
+   

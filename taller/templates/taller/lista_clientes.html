@@ -13,6 +13,7 @@
         <nav >
             <div class="container">  
                 <nav >
+                    <a class="btn btn-primary" href={% url 'busqueda_nombre' %}>Buscar Cliente</a>
                     <a class="btn btn-primary" href={% url 'form_cliente' %}>Ingresar Cliente</a>
                     
                     <div class="container">  
@@ -20,8 +21,10 @@
                             <ul>    
                                 <li>
                                     {{cliente}}
+                                    <a href={% url 'datos_cliente' cliente.id %}>Detalle</a>
                                     <a href={% url 'actualizar_cliente' cliente.id %}>Editar</a>
                                     <a href={% url 'borrar_cliente' cliente.id %}>Eliminar</a>
+                                    
                                 </li> 
                             </ul>
                         {% endfor %}    
@@ -31,5 +34,18 @@
                 
     {% endblock body %}   
 
-    
+    {% block buscador %}
+
+           
+                
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a class="btn btn-primary" href={% url 'form_cliente' %}>Ingresar Cliente</a>
+            <a class="btn btn-primary" href={% url 'form_auto' %}>Ingreso de Vehiculo</a>
+            <a class="btn btn-primary" href= {% url 'form_problemas' %}>Problemas del Vehiculo</a>
+        </div>
+    </nav>     
+
+
+{% endblock buscador %}
    

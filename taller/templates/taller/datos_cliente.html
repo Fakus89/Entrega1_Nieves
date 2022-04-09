@@ -1,0 +1,28 @@
+{% extends 'inicio/index.html' %}
+
+{% block titulo_arriba %}
+    <title>lista_de_clientes</title>
+{% endblock titulo_arriba %}
+
+   
+    {% block caratula %}
+        <h1 class="mb-5">Lista De Clientes</h1>
+    {% endblock caratula %}
+    {% block body %}
+         
+        <nav >
+            <div class="container">  
+                <nav >
+                    <a class="btn btn-primary" href={% url 'form_cliente' %}>Ingresar Cliente</a>
+                    
+                    <div class="container">  
+                            
+                        Nombre:{{object.nombre}}<br />
+                        Apellido:{{object.apellido}}<br />
+                        Telefono:{{object.telefono}}<br />
+                        Email:{{object.email}} 
+                    </div>
+                </nav>
+                
+            </div>    
+    {% endblock body %}   

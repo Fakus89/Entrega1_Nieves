@@ -1,4 +1,5 @@
 from django.urls import path 
+from django.contrib.auth.views import LogoutView
 from . import views 
 urlpatterns = [ 
     path("taller/", views.taller ,name="taller"),
@@ -17,9 +18,20 @@ urlpatterns = [
     
     path("actualizar_cliente/<int:id>/",views.actualizar_cliente, name="actualizar_cliente"),
     path("cliente/borrar/<int:id>/",views.borrar_cliente, name="borrar_cliente"),
+    path("detalle/<int:pk>/",views.ClienteDetalle.as_view(), name="datos_cliente"),
 
-    path("autos/",views.ListaAuto.as_view(),name="lista_autos"),
-    path("problemas/",views.ListaArreglo.as_view(),name="lista_problemas"),
+    path("autos/",views.ListaAuto.as_view(), name="listasautos"),
+    path("autos/borrar/<int:pk>/",views.ListaAuto.as_view(), name="datos_auto"),
+    #path("actualizar_autos/<int:pk>/",views.ListaAuto.as_view(), name="datos_cliente")
+
+    path("problemas/",views.ListaArreglo.as_view(), name="listasproblemas"),
+    #path("problemas/borrar/<int:pk>/",views.ClienteDetalle.as_view(), name="datos_cliente")
+    #path("actualizar_problemas/<int:pk>/",views.ClienteDetalle.as_view(), name="datos_cliente")
+    #path(r"^detalle/(?P<pk>\d+)$/",views.ClienteDetalle.as_view(), name="datos_cliente"),
+
+    path("login/",views.login,name="login"),
+    path("logout/", LogoutView.as_view(template_name="taller/logout.html"), name="logout"),
+    path("registrar/", views.registrar, name="registrar")
 ]
 
  

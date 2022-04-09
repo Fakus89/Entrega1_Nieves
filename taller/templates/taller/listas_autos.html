@@ -1,0 +1,32 @@
+{% extends 'inicio/index.html' %}
+
+{% block titulo_arriba %}
+    <title>lista_de_autos</title>
+{% endblock titulo_arriba %}
+
+
+    {% block caratula %}
+        <h1 class="mb-5">Lista De Autos</h1>
+    {% endblock caratula %}
+    {% block body %}
+
+        <nav >
+            <div class="container">
+                <nav >
+                    <a class="btn btn-primary" href={% url 'form_auto' %}>Ingresar Auto</a>
+
+                    <div class="container">
+                        {% for autos in object_list %}
+                            <ul>
+                                <li>
+                                    {{autos}}
+                                    {% comment %} <a href={% url 'actualizar_auto' autos.id %}>Editar</a>
+                                    <a href={% url 'borrar_autos' autos.id %}>Eliminar</a> {% endcomment %}
+                                </li>
+                            </ul>
+                        {% endfor %}
+                    </div>
+                </nav>
+
+
+    {% endblock body %}

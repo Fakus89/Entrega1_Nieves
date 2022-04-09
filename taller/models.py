@@ -18,11 +18,11 @@ class Auto(models.Model):
     patente = models.CharField(max_length=7)
     
     def __str__(self):
-        return f"Patente: {self.patente}, {self.marca}, {self.modelo}"
+        return f"N° de ID:{self.id}, Patente: {self.patente}, Marca:{self.marca}, Modelo:{self.modelo}"
 
 
 class Problema(models.Model):
     inconveniente = models.CharField(max_length=50)
     
     def __str__(self):
-        return f"Problema: {self.inconveniente}"
+        return f"N° de ID:{self.id}, Problema: {self.inconveniente}"

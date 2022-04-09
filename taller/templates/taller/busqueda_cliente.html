@@ -17,8 +17,9 @@
                     {% csrf_token %}
                     <table>
                         {{buscador1.as_table}}
+                        
                     </table>
-
+                    <a class="btn btn-primary" href={% url 'lista_clientes' %}>Lista De Clientes</a>
                     <input type="submit" placeholder="Enviar">
                 </form>
             </div>
@@ -29,6 +30,9 @@
                     <Ol>    
                         <li>
                             {{cliente}}
+                            <a href={% url 'datos_cliente' cliente.id %}>Detalle</a>
+                            <a href={% url 'actualizar_cliente' cliente.id %}>Editar</a>
+                            <a href={% url 'borrar_cliente' cliente.id %}>Eliminar</a>
                         </li>
                     </Ol>
                     
@@ -43,4 +47,17 @@
     {% endblock body %}   
 
     
-   
+    {% block buscador %}
+
+           
+                
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a class="btn btn-primary" href={% url 'form_cliente' %}>Ingresar Cliente</a>
+            <a class="btn btn-primary" href={% url 'form_auto' %}>Ingreso de Vehiculo</a>
+            <a class="btn btn-primary" href= {% url 'form_problemas' %}>Problemas del Vehiculo</a>
+        </div>
+    </nav>     
+
+
+{% endblock buscador %}   
