@@ -11,7 +11,10 @@
     {% block body %}
          
     <nav >
-        <div class="container">    
+        <div class="container">   
+            
+            <a class="btn btn-primary" href={% url 'busqueda_nombre' %}>Buscar Cliente</a>
+            <a class="btn btn-primary" href={% url 'busqueda_inconveniente' %}>Buscar inconveniente</a>
 
             <form action={% url 'busqueda_patente' %} method="get">
                 {% csrf_token %}

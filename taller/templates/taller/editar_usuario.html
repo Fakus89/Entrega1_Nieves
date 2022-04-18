@@ -1,15 +1,15 @@
 {% extends 'inicio/index.html' %}
 
 {% block titulo_arriba %}
-    <title>Loggin</title>
+    <title>Editidar_Usuario</title>
 {% endblock titulo_arriba %}
 {% block imagen %}
     <header class="masthead2">
 {% endblock imagen %}
 
 {% block caratula %}
-    <h1 class="mb-5">Regístrate <br/>
-        
+    <h1 class="mb-5">EditidarUsuario <br/>
+
             {% if mensaje %}
                 {{mensaje}}
             {% endif %} 
@@ -18,16 +18,16 @@
 {% endblock caratula %}   
 
 {% block body %}
-    <nav>
-        <form action="" method= "post">
-            {% csrf_token %}
-                <table>
-                    {{form.as_p}}
-                </table>
-            <button>Confirmar</button>  
-                   
-        </form>
-    </nav>
+    
+    <form action="" method= "post">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+         
+        <button>Confirmar Cambios</button>  
+    </form>
+    
 {% endblock body %}  
 
     {% block buscador %}

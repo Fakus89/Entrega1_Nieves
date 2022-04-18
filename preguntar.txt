@@ -1,0 +1,38 @@
+registrar.html
+
+formulario en tabla no se muestra de tal forma en la pagina .as_p 
+                        
+linea 20                    {% block body %}
+                                <nav>
+                                    <form action="" method= "post">
+                                        {% csrf_token %}
+                                            <table>
+                                                {{form.as_p}}
+                                            </table>
+                                        <button>Confirmar</button>  
+                                            
+                                    </form>
+                                </nav>
+                            {% endblock body %}  
+###################################################################################################
+forms.py 
+no aparese en la pagina web 
+al completar erroneamente no vuelve a mostrarse la tabla para completar los datos
+
+linea 47    class Meta: 
+            model= User
+            fields= ["username","email","password1","password2"]
+            help_test ={ k:"" for k in fields }
+            {   
+                "username":"Solo letras, dígitos y @/./+/-/_.",
+                "email":"Solo letras, dígitos y @/./+/-/_.",
+                "password1": "Su contraseña no puede ser demasiado similar a su otra información personal, debe contener al menos 8 caracteres y su contraseña no puede ser una contraseña de uso común. Su contraseña no puede ser completamente numérica.",
+                "password2": "Repita para Verificacion"
+            }
+
+######################################################################################################
+
+no esta para editar el usuario username pero aparece al editarlo
+
+
+

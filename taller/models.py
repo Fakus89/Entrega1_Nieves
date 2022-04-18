@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Cliente(models.Model):
@@ -26,3 +27,9 @@ class Problema(models.Model):
     
     def __str__(self):
         return f"N° de ID:{self.id}, Problema: {self.inconveniente}"
+
+
+class MiAvatarUser(models.Model):
+
+    img = models.ImageField(upload_to="avatares", null = True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

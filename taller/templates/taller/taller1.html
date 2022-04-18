@@ -3,6 +3,24 @@
 {% block titulo_arriba %}
     <title>Taller</title>
 {% endblock titulo_arriba %}
+{% block botones %}
+        <nav class="navbar navbar-light bg-light static-top">
+            <div class="container">
+                <a class="btn btn-primary" href={% url 'inicio' %}>Inicio</a>
+                <a class="btn btn-primary" href={% url 'taller' %}>Taller</a>
+                <a class="btn btn-primary" href={% url 'logout' %}>Logout</a>
+                {% if  request.user.is_authenticated %}
+                <a class="btn btn-primary" href={% url 'logout' %}>Logout</a>
+                <a href={% url 'editar_usuario' %}>
+                    <img src="user_avatar_url" alt="editar_usuario" height=20>
+                </a>
+                {% endif %}
+            </div>
+        </nav>
+        {% endblock  %}
+    
+
+
 {% block imagen %}
     <header class="masthead2">
 {% endblock imagen %}
@@ -26,7 +44,7 @@
 
     
 {% endblock body %}  
-
+{%block body1%}
 {% block buscador %}
 
            
@@ -41,4 +59,10 @@
 
 
 {% endblock buscador %}
-
+<div class="container">
+    <li class="list-inline-item">
+        
+        <a class="btn btn-primary"  href={% url 'registrar' %}>Registrar Empleado</a>
+        <a class="btn btn-primary" href=http://127.0.0.1:8000/admin>Admin</a>
+    </li>
+{% endblock body1%}

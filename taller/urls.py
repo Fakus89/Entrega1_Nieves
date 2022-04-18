@@ -31,7 +31,7 @@ urlpatterns = [
 
     path("login/",views.login,name="login"),
     path("logout/", LogoutView.as_view(template_name="taller/logout.html"), name="logout"),
-    path("registrar/", views.registrar, name="registrar")
+    path("registrar/", views.registrar, name="registrar"),
+    path("editar_usuario/", views.editar_usuario, name="editar_usuario")
 ]
 
- 
