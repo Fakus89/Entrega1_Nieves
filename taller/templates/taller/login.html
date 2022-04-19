@@ -9,6 +9,7 @@
 
 {% block caratula %}
     <h1 class="mb-5">Inicar Sesión<br/>
+        
         {% if mensaje %}
             {{mensaje}}
         {% endif %} 
@@ -21,14 +22,8 @@
         {% csrf_token %}
         {{form.as_p}} 
         <button>Login</button>  
-    </form>
-    {% comment %} <nav >
-        <div class="container">
-            <a class="btn btn-primary" href={% url 'busqueda_nombre' %}>Buscar por nombre</a>
-            <a class="btn btn-primary" href={% url 'busqueda_patente' %}>Buscar por Patente</a>
-            <a class="btn btn-primary" href={% url 'busqueda_inconveniente' %}>Buscar inconveniente</a>
-        </div>
-    </nav>   {% endcomment %}
+    </form><br><br><br><br><br><br><br>
+
 {% endblock body %}  
 
     {% block buscador %}

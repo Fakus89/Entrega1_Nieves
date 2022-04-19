@@ -11,19 +11,17 @@
     {% block body %}
          
     <nav >
-        <div class="container">   
-            
-            <a class="btn btn-primary" href={% url 'busqueda_nombre' %}>Buscar Cliente</a>
-            <a class="btn btn-primary" href={% url 'busqueda_inconveniente' %}>Buscar inconveniente</a>
-
+        <div class="container bg-black75">  
             <form action={% url 'busqueda_patente' %} method="get">
                 {% csrf_token %}
                 <table>
                     {{buscador2.as_table}}
                 </table>
-                <a class="btn btn-primary" href={% url 'listasautos' %}>Lista De Vehiculos</a>
                 <input type="submit" placeholder="Enviar">
-            </form>
+            </form><br>
+            <a class="btn btn-primary" href={% url 'listasautos' %}>Lista De Vehiculos</a>
+            <a class="btn btn-primary" href={% url 'busqueda_nombre' %}>Buscar Cliente</a>
+            <a class="btn btn-primary" href={% url 'busqueda_inconveniente' %}>Buscar inconveniente</a>
         </div>
     </nav>
     <nav >       

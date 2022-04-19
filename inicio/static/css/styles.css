@@ -625,6 +625,10 @@ progress {
   font-size: 0.875em;
   color: #6c757d;
 }
+.bg-black75{
+  background-color: rgba(0,0,0,0.75);
+  padding: 1rem;
+}
 
 .container,
 .container-fluid,

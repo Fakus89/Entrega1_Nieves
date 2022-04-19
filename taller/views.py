@@ -12,7 +12,7 @@ from .models import MiAvatarUser
 
 @login_required
 def taller(request):
-    return render(request,"taller/taller1.html", {"user_avatar_url":buscar_url_avatar()})
+    return render(request,"taller/taller1.html", {"user_avatar_url":buscar_url_avatar(request.user)})
 
 @login_required
 def form_cliente(request):
@@ -23,9 +23,9 @@ def form_cliente(request):
             datocliente=clientex.cleaned_data
             nuevo_cliente= Cliente(nombre=datocliente["nombre"],apellido=datocliente["apellido"],telefono=datocliente["telefono"],email=datocliente["email"])
             nuevo_cliente.save()
-            return render(request, "taller/auto_n.html",{"nuevo_cliente":nuevo_cliente})
+            return render(request, "taller/auto_n.html",{"nuevo_cliente":nuevo_cliente,"user_avatar_url":buscar_url_avatar(request.user)})
     clientex= FormCliente()
-    return render(request, "taller/cliente.html",{"clientex": clientex})
+    return render(request, "taller/cliente.html",{"clientex": clientex,"user_avatar_url":buscar_url_avatar(request.user)})
 
 @login_required
 def form_auto(request):
@@ -36,7 +36,7 @@ def form_auto(request):
             datoauto=autox.cleaned_data
             nuevo_auto= Auto(marca=datoauto["marca"],modelo=datoauto["modelo"],patente=datoauto["patente"])
             nuevo_auto.save()     
-            return render(request, "taller/arreglos.html",{"nuevo_auto":nuevo_auto})
+            return render(request, "taller/arreglos.html",{"nuevo_auto":nuevo_auto,"user_avatar_url":buscar_url_avatar(request.user)})
     autox= FormAuto()
     return render(request, "taller/auto_n.html",{"autox": autox})
 
@@ -49,9 +49,9 @@ def form_problemas(request):
             datoproblema=problemax.cleaned_data
             nuevo_problema= Problema(inconveniente=datoproblema["inconveniente"])
             nuevo_problema.save()   
-            #return render(request, "taller/lista_clientes.html",{"nuevo_problema":nuevo_problema})
+            return render(request, "taller/lista_clientes.html",{"nuevo_problema":nuevo_problema,"user_avatar_url":buscar_url_avatar(request.user)})
     problemax= FormProblema
-    return render(request, "taller/arreglos.html",{"problemax": problemax})
+    return render(request, "taller/arreglos.html",{"problemax": problemax,"user_avatar_url":buscar_url_avatar(request.user)})
 
 ##########################################-----busquedas---------########################################
 
@@ -62,7 +62,7 @@ def busqueda_nombre(request):
     if dato1 is not None:
         nombre_buscado=Cliente.objects.filter(nombre__icontains=dato1)
     buscador1= BusquedaNombre()
-    return render(request, "taller/busqueda_cliente.html", {"buscador1":buscador1,"nombre_buscado":nombre_buscado})
+    return render(request, "taller/busqueda_cliente.html", {"buscador1":buscador1,"nombre_buscado":nombre_buscado,"user_avatar_url":buscar_url_avatar(request.user)})
 
 
 @login_required
@@ -72,7 +72,7 @@ def busqueda_patente(request):
     if dato2 is not None:
         patente_buscado=Auto.objects.filter(patente__icontains=dato2)
     buscador2=BusquedaAuto()
-    return render(request, "taller/busqueda_auto.html", {"buscador2":buscador2,"patente_buscado":patente_buscado})
+    return render(request, "taller/busqueda_auto.html", {"buscador2":buscador2,"patente_buscado":patente_buscado,"user_avatar_url":buscar_url_avatar(request.user)})
 
 @login_required
 def busqueda_inconveniente(request):
@@ -81,7 +81,7 @@ def busqueda_inconveniente(request):
     if dato3 is not None:
         inconveniente_buscado=Problema.objects.filter(inconveniente__icontains=dato3)
     buscador3=BusquedaInconveniente()
-    return render(request, "taller/busqueda_inconveniente.html",{"buscador3":buscador3,"inconveniente_buscado":inconveniente_buscado})
+    return render(request, "taller/busqueda_inconveniente.html",{"buscador3":buscador3,"inconveniente_buscado":inconveniente_buscado,"user_avatar_url":buscar_url_avatar(request.user)})
 
 
             ######################-----------CRUD-----------##########################
@@ -91,7 +91,7 @@ def busqueda_inconveniente(request):
 @login_required
 def lista_clientes(request):
     lista_de_clientes=Cliente.objects.all()
-    return render(request,"taller/lista_clientes.html",{"lista_de_clientes":lista_de_clientes})
+    return render(request,"taller/lista_clientes.html",{"lista_de_clientes":lista_de_clientes,"user_avatar_url":buscar_url_avatar(request.user)})
 
 #actualizar cliente
 
@@ -110,7 +110,7 @@ def actualizar_cliente(request, id):
             cliente.save()
             return redirect("lista_clientes")
     clientex= FormCliente()
-    return render(request, "taller/actualizar_cliente.html",{"clientex": clientex, "cliente":cliente})
+    return render(request, "taller/actualizar_cliente.html",{"clientex": clientex, "cliente":cliente,"user_avatar_url":buscar_url_avatar(request.user)})
 
 #Borrar cliente
 @login_required
@@ -151,7 +151,7 @@ def login(request):
 
             if user is not None:
                 log(request, user)
-                return render(request,"taller/taller1.html",{"mensaje":"Login correcto"})
+                return render(request,"taller/taller1.html",{"mensaje":"Login correcto","user_avatar_url":buscar_url_avatar(request.user)})
             else:
                 return render(request,"taller/login.html",{"form":form, "mensaje":"reintentar"})
 
@@ -165,7 +165,7 @@ def login(request):
     #authenticate
 
 
-#################################-----------Creación y edicion de Usuario------------------####################################
+#################################-----------Creación y edicion de Usuario------------------#####################################
 
 ###---#creación
 @login_required
@@ -177,7 +177,7 @@ def registrar(request):
         if usuario.is_valid():
             user= usuario.cleaned_data["username"]
             usuario.save()
-            return render(request,"taller/taller1.html",{"mensaje": f"El usuario {{user}},fue creado correctamente, por favor vuelva a loguearse ","user_avatar_url":buscar_url_avatar()})
+            return render(request,"taller/taller1.html",{"mensaje": f"El usuario {{user}},fue creado correctamente, por favor vuelva a loguearse ","user_avatar_url":buscar_url_avatar(request.user)})
         else:
             return render(request, "taller/registrar.html",{"usuario":usuario, "mensaje": "Intente nuevamente"})
 
@@ -207,7 +207,7 @@ def editar_usuario(request):
                 mensaje="Intente nuevamente"
          
             request.user.save()
-            return render(request,"taller/taller1.html",{"mensaje":"Se edito correctamente"})
+            return render(request,"taller/taller1.html",{"mensaje":"Se edito correctamente","user_avatar_url":buscar_url_avatar(request.user)})
         else: 
             return render(request, "taller/editar_usuario.html",{"form":form, "mensaje": "Intente nuevamente"})
             

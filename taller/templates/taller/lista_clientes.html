@@ -11,7 +11,7 @@
     {% block body %}
          
         <nav >
-            <div class="container">  
+            <div class="container  bg-black75">  
                 <nav >
                     <a class="btn btn-primary" href={% url 'busqueda_nombre' %}>Buscar Cliente</a>
                     <a class="btn btn-primary" href={% url 'form_cliente' %}>Ingresar Cliente</a>
@@ -21,23 +21,17 @@
                             <ul>    
                                 <li>
                                     {{cliente}}
-                                    <a href={% url 'datos_cliente' cliente.id %}>Detalle</a>
-                                    <a href={% url 'actualizar_cliente' cliente.id %}>Editar</a>
-                                    <a href={% url 'borrar_cliente' cliente.id %}>Eliminar</a>
+                                    <a class="btn btn-primary" href={% url 'datos_cliente' cliente.id %}>Detalle</a>
+                                    <a class="btn btn-primary" href={% url 'actualizar_cliente' cliente.id %}>Editar</a>
+                                    <a class="btn btn-primary" href={% url 'borrar_cliente' cliente.id %}>Eliminar</a>
                                     
                                 </li> 
                             </ul>
                         {% endfor %}    
                     </div>
-                </nav>
-                
-                
+                </nav>          
     {% endblock body %}   
-
-    {% block buscador %}
-
-           
-                
+    {% block buscador %}                
     <nav class="navbar navbar-light bg-light static-top">
         <div class="container">
             <a class="btn btn-primary" href={% url 'form_cliente' %}>Ingresar Cliente</a>
@@ -45,7 +39,5 @@
             <a class="btn btn-primary" href= {% url 'form_problemas' %}>Problemas del Vehiculo</a>
         </div>
     </nav>     
-
-
 {% endblock buscador %}
    

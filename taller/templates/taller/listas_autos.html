@@ -15,13 +15,11 @@
                 <nav >
                     <a class="btn btn-primary" href={% url 'form_auto' %}>Ingresar Auto</a>
 
-                    <div class="container">
+                    <div class="container bg-black75">
                         {% for autos in object_list %}
                             <ul>
                                 <li>
                                     {{autos}}
-                                    {% comment %} <a href={% url 'actualizar_auto' autos.id %}>Editar</a>
-                                    <a href={% url 'borrar_autos' autos.id %}>Eliminar</a> {% endcomment %}
                                 </li>
                             </ul>
                         {% endfor %}

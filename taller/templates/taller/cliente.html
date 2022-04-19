@@ -1,7 +1,7 @@
 {% extends 'inicio/index.html' %}
 
 {% block titulo_arriba %}
-    <title>Arreglo</title>
+    <title>Ingresar Cliente</title>
 {% endblock titulo_arriba %}
 {% block imagen %}
     <header class="masthead2">
@@ -14,25 +14,40 @@
          
         <nav >
             <div class="container">
-                <a class="btn btn-primary" href={% url 'form_cliente' %}>Ingresar Cliente</a>
-                <a class="btn btn-primary" href={% url 'busqueda_nombre' %}>Buscar Cliente</a>
-                <a class="btn btn-primary" href={% url 'lista_clientes' %}>Lista De Clientes</a>
-                {% comment %} 
-                <a class="btn btn-primary" href={% url 'form_auto' %}>Ingreso de Vehiculo</a> 
-                <a class="btn btn-primary" href= {% url 'form_problemas' %}>Problemas</a>
-                {% endcomment %}
+               
+            
                 <form action={% url 'form_cliente' %} method="post">
                     {% csrf_token %}
                     <table>
                         {{clientex.as_table}}
                     </table>
                     <input type="submit" placeholder="Enviar">
+                    
                 </form>
             </div>
-        </nav>  
+        </nav>  <br><br><br><br><br>
     {% endblock body %}   
                   
     {% block buscador %}
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <table>
+                <a class="btn btn-primary" href={% url 'form_cliente' %}>Ingresar Cliente</a>
+                <a class="btn btn-primary" href={% url 'busqueda_nombre' %}>Buscar Cliente</a>
+                <a class="btn btn-primary" href={% url 'lista_clientes' %}>Lista De Clientes</a> <br><br><br> 
+            </table>
+            <table>
+                <a class="btn btn-primary" href={% url 'form_auto' %}>Ingreso de Vehiculo</a>    
+                <a class="btn btn-primary" href={% url 'busqueda_patente' %}>Buscar por Patente</a>
+                <a class="btn btn-primary" href={% url 'listasautos' %}>Lista De Vehiculos</a><br><br><br>
+            </table>
+            <table>
+                <a class="btn btn-primary" href={% url 'listasproblemas' %}>Lista De Problemas</a>
+                <a class="btn btn-primary" href= {% url 'form_problemas' %}>Problemas del Vehiculo</a>    
+                <a class="btn btn-primary" href={% url 'busqueda_inconveniente' %}>Buscar inconveniente</a>
+            </table>
+        </div>
+    </nav>     
     {% endblock buscador %}  
 
 
